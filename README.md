@@ -30,7 +30,7 @@ This repository contains the code for the Ansible 101 workshop.
 * `vi /etc/ansible/hosts`
 
 ```bash
-[web]
+[webservers]
 192.168.2.1
 192.168.2.2
 ```
@@ -80,7 +80,7 @@ host_key_checking = False
 ```bash
 ---
 - name: Install nginx 
-  hosts: web  
+  hosts: webservers  
   tasks:    
     - name: install nginx 
       apt: 
@@ -98,6 +98,8 @@ host_key_checking = False
 * `ansible-playbook playbook.yml --check` - to check the playbook
 
 * Check the nginx installation in the slave nodes, go to the browser and type the ip of the slave nodes, you will see the nginx welcome page.
+
+*for checking the installation of nginx in slave nodes use this  command --> systemctl status nginx
 
 if the page is not displayed, then check the inbound rules in the security group of the slave nodes.
 
